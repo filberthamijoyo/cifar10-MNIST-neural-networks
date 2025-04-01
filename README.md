@@ -104,4 +104,14 @@ pip install torch torchvision matplotlib numpy cupy
 
 ## License
 
-MIT License 
+MIT License
+
+## Let's Connect
+
+I'm open to:
+- Internship roles in software engineering, data analysis, or ML
+- Research collaborations (academic or industry)
+- Informal chats about tech trends, career advice, or project ideas
+- Hackathons, open-source contributions, or mentorship
+
+I look forward to connecting with fellow developers and researchers! Feel free to reach out for collaboration or discussion. 
