@@ -1,8 +1,18 @@
 # Neural Network Implementation for CIFAR-10 and MNIST Datasets
 
-This repository contains two distinct implementations of neural networks for image classification:
-1. A neural network built entirely from scratch using only NumPy/CuPy for CIFAR-10
-2. A custom PyTorch-based implementation with advanced components for both CIFAR-10 and MNIST
+A deep learning project featuring two distinct neural network implementations for image classification:
+
+1. A pure NumPy/CuPy convolutional neural network implementation for CIFAR-10 (86.50% accuracy)
+   - Built entirely from scratch with no deep learning frameworks
+   - Custom implementation of convolution operations, backpropagation, and optimization
+   - Demonstrates fundamental neural network concepts and mathematics
+
+2. An advanced PyTorch implementation with custom components (93.26% CIFAR-10, 97.59% MNIST)
+   - Custom modules: Softplus activation, efficient Linear layer, stable Cross-entropy
+   - ResNet-inspired architecture with skip connections and BatchNorm
+   - Advanced training features: mixed precision, CuDNN optimization, custom schedulers
+
+Both implementations feature comprehensive data augmentation pipelines, GPU acceleration, and detailed hyperparameter configurations.
 
 ## Project Structure
 
