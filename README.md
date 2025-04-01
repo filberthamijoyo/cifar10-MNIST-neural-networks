@@ -197,34 +197,6 @@ cd cifar10-MNIST-neural-networks
   - Cosine annealing
   - Warm-up phase (5 epochs)
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## License
 
 MIT License
-
-## Citation
-
-If you find this implementation useful in your research, please consider citing:
-
-```bibtex
-@misc{hamijoyo2024neural,
-  author = {Filbert Hamijoyo},
-  title = {Neural Network Implementation for CIFAR-10 and MNIST},
-  year = {2024},
-  publisher = {GitHub},
-  url = {https://github.com/filberthamijoyo/cifar10-MNIST-neural-networks}
-}
-```
-
-## Let's Connect
-
-I'm open to:
-- Research collaborations in deep learning and computer vision
-- Discussions about neural network implementations
-- Optimization techniques for deep learning models
-- Knowledge sharing and mentorship
-
-Feel free to reach out for collaboration or discussion!
