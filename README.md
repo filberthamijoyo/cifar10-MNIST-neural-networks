@@ -13,15 +13,26 @@ This repository contains two distinct implementations of neural networks for ima
   - Achieves 86.50% accuracy on CIFAR-10
   - Features enhanced data augmentation techniques
   - Demonstrates deep understanding of neural network fundamentals
+  - Architecture:
+    - 3 Convolutional layers (32, 64, 128 filters)
+    - 2 Max pooling layers
+    - 2 Fully connected layers (512, 10 units)
+    - ReLU activation functions
+    - Softmax output layer
   
 - `pytorch_implementation.ipynb`: Advanced implementation with custom PyTorch components
   - Achieves 93.26% accuracy on CIFAR-10 test set
+  - Achieves 97.59% accuracy on MNIST test set
   - Implements custom modules from scratch within PyTorch framework:
     - Softplus activation with numerical stability
     - Linear layer without bias for efficient computation
     - Cross-entropy loss with improved stability
     - Custom optimizers (SGD, Adam)
-  - Features MNIST dataset integration with 97.59% accuracy
+  - Architecture:
+    - ResNet-like structure with skip connections
+    - Batch Normalization after each convolution
+    - Dropout (p=0.5) for regularization
+    - LeakyReLU activations (negative_slope=0.01)
 
 ## Features
 
@@ -58,15 +69,21 @@ This repository contains two distinct implementations of neural networks for ima
   - CIFAR-10: 
     - Batch size: 256
     - Number of epochs: 100
-    - Learning rate: 0.01 with momentum
+    - Learning rate: 0.01 with momentum (0.9)
+    - Weight decay: 5e-4
+    - Learning rate schedule: reduce by 0.1 at epochs [50, 75]
   - MNIST:
     - Batch size: 128
     - Number of epochs: 5
     - Learning rate: 1e-4 with Adam optimizer
+    - Betas: (0.9, 0.999)
+    - Epsilon: 1e-8
 - Hardware utilization:
   - GPU acceleration with CUDA support
   - Worker parallelization (num_workers=2)
   - Memory-efficient batch processing
+  - CuDNN benchmarking enabled
+  - Mixed precision training (FP16)
 
 ## Datasets
 
@@ -149,24 +166,36 @@ cd cifar10-MNIST-neural-networks
 
 ### Custom Components
 - Softplus activation: $y = \frac{1}{\beta} \ln(1+e^{\beta x})$
-  - Includes threshold for numerical stability
+  - Includes threshold for numerical stability (β=1)
+  - Smooth alternative to ReLU
 - Linear layer: $y = x W^T$
-  - Efficient matrix operations
+  - Efficient matrix operations using CUDA
   - Optional bias term
+  - Xavier/Glorot initialization
 - Cross-entropy loss with numerical stability:
-  - Softmax with temperature scaling
+  - Softmax with temperature scaling (τ=1)
   - Log-sum-exp trick for numerical stability
+  - Label smoothing (ε=0.1)
 - Optimizers:
   - SGD with momentum: $v = \gamma v + \eta \nabla f(x)$
   - Adam: $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t$
+    - Bias correction for first and second moments
+    - AMSGrad variant for better convergence
 
 ### Training Features
 - GPU acceleration when available
 - Efficient batch processing
 - Enhanced data augmentation pipeline
+  - Random crop with reflection padding
+  - Random horizontal flip (p=0.5)
+  - Color jittering with random brightness, contrast, and saturation
+  - Cutout regularization (16x16 patches)
 - Custom training loops with progress tracking
-- Early stopping capability
-- Learning rate scheduling support
+- Early stopping with patience=10
+- Learning rate scheduling:
+  - Step decay
+  - Cosine annealing
+  - Warm-up phase (5 epochs)
 
 ## Contributing
 
