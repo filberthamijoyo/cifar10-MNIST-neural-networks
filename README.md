@@ -66,7 +66,10 @@ The implementations achieve:
 - CIFAR-10: 
   - Basic implementation: 86.50% accuracy
   - Advanced implementation: 93.26% accuracy
-- MNIST: High accuracy with custom neural network components
+- MNIST: 97.59% accuracy on the test set
+  - Custom implementation with CNN architecture
+  - Using BatchNorm, LeakyReLU, and Dropout
+  - Trained with Adam optimizer
 
 ## Requirements
 
